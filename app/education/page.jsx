@@ -1,4 +1,12 @@
 import { GraduationCap } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Education | Mohammad Kaif",
+  description:
+    "Mohammad Kaif's education and technical foundation in computer science, software development, databases, algorithms, and web technologies.",
+  path: "/education"
+});
 
 const education = [
   {

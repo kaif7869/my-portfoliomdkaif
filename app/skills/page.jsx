@@ -1,4 +1,12 @@
 import { Code2, Database, GitBranch, Layers, Server, Wrench } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Skills | Mohammad Kaif Full Stack Developer",
+  description:
+    "Explore Mohammad Kaif's full stack development skills including React, Next.js, Node.js, Express.js, MongoDB, Tailwind CSS, REST APIs, Git, and deployment.",
+  path: "/skills"
+});
 
 const skillGroups = [
   {

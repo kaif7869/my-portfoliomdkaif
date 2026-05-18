@@ -1,11 +1,59 @@
+import {
+  absoluteUrl,
+  createPageMetadata,
+  defaultDescription,
+  defaultTitle,
+  keywords,
+  siteName,
+  siteUrl
+} from "@/lib/seo";
 import ChatBot from "./chatBot/page";
 import MobileNav from "./components/MobileNav";
 import Sidebar from "./components/Sidebar";
 import "./globals.css";
 
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+  ...createPageMetadata({
+    title: defaultTitle,
+    description: defaultDescription
+  }),
+  applicationName: siteName,
+  authors: [{ name: "Mohammad Kaif", url: siteUrl }],
+  creator: "Mohammad Kaif",
+  publisher: "Mohammad Kaif",
+  category: "portfolio",
+  icons: {
+    icon: "/favicon.ico"
+  }
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Mohammad Kaif",
+  url: siteUrl,
+  image: absoluteUrl("/Images/personal/mohammadkaifphoto.webp"),
+  jobTitle: "Full Stack Developer",
+  email: "mailto:mohammadkaifdevalapur@gmail.com",
+  telephone: "+91-6362196902",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN"
+  },
+  knowsAbout: keywords,
+  sameAs: []
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body className="h-screen overflow-hidden bg-[#0b1120] text-white">
         <div className="flex h-screen">
           <Sidebar />

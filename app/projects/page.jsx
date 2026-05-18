@@ -1,4 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Projects | Mohammad Kaif Portfolio",
+  description:
+    "View Mohammad Kaif's selected web development projects, including React applications, AI chatbot work, and full stack dashboard-style MERN builds.",
+  path: "/projects"
+});
 
 const projects = [
   {

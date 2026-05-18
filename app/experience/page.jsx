@@ -1,4 +1,12 @@
 import { Briefcase } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Experience | Mohammad Kaif Full Stack Developer",
+  description:
+    "Mohammad Kaif's professional experience building responsive React and Next.js interfaces, backend APIs, MongoDB integrations, and production web applications.",
+  path: "/experience"
+});
 
 const timeline = [
   {

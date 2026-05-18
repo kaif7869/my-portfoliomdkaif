@@ -1,4 +1,12 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Contact Mohammad Kaif | Full Stack Developer",
+  description:
+    "Contact Mohammad Kaif for freelance projects, collaboration, portfolio feedback, and full stack web development work.",
+  path: "/contact"
+});
 
 const contactItems = [
   { label: "Email", value: "mohammadkaifdevalapur@gmail.com", icon: <Mail size={24} /> },
