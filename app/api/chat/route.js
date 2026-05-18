@@ -1,6 +1,5 @@
 import { getGeminiModel } from "@/lib/gemini";
 
-export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 const PORTFOLIO_PROMPT = `
