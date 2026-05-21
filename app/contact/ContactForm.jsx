@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { WandSparkles } from "lucide-react";
+import { useRef, useState } from "react";
 
 const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
@@ -11,7 +12,9 @@ const initialStatus = {
 
 export default function ContactForm() {
   const [isSending, setIsSending] = useState(false);
+  const [isImproving, setIsImproving] = useState(false);
   const [status, setStatus] = useState(initialStatus);
+  const formRef = useRef(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -77,8 +80,58 @@ export default function ContactForm() {
     }
   }
 
+  async function improveMessage() {
+    const form = formRef.current;
+    if (!form) return;
+
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const subject = String(formData.get("subject") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    if (!message) {
+      setStatus({
+        type: "error",
+        message: "Please write a message first."
+      });
+      return;
+    }
+
+    setIsImproving(true);
+    setStatus(initialStatus);
+
+    try {
+      const response = await fetch("/api/contact-ai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, subject, message })
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Could not improve the message.");
+      }
+
+      form.elements.message.value = data.message;
+      setStatus({
+        type: "success",
+        message: "Message improved with AI."
+      });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error.message
+      });
+    } finally {
+      setIsImproving(false);
+    }
+  }
+
   return (
     <form
+      ref={formRef}
       onSubmit={handleSubmit}
       className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
     >
@@ -105,7 +158,18 @@ export default function ContactForm() {
       </div>
 
       <label className="mt-5 block">
-        <span className="text-sm font-semibold text-gray-300">Message</span>
+        <span className="flex items-center justify-between gap-3">
+          <span className="text-sm font-semibold text-gray-300">Message</span>
+          <button
+            type="button"
+            onClick={improveMessage}
+            disabled={isImproving}
+            className="inline-flex items-center gap-2 rounded-lg border border-green-400/30 px-3 py-2 text-xs font-semibold text-green-300 transition hover:bg-green-400/10 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            <WandSparkles size={14} />
+            {isImproving ? "Improving..." : "Improve with AI"}
+          </button>
+        </span>
         <textarea
           name="message"
           rows={7}
