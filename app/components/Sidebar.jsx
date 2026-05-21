@@ -1,13 +1,13 @@
 "use client";
 
 import {
-    Briefcase,
-    Code2,
-    FolderGit2,
-    GraduationCap,
-    Home,
-    Mail,
-    User
+  Briefcase,
+  Code2,
+  FolderGit2,
+  GraduationCap,
+  Home,
+  Mail,
+  User
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -72,7 +72,7 @@ export default function Sidebar() {
         </div>
 
         <p className="mt-6 text-center text-sm text-gray-500">
-          Copyright 2026 Mohammad Kaif
+          Copyright 2026 Mohammad Kaif Devalapur
         </p>
       </div>
     </aside>
