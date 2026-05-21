@@ -69,7 +69,7 @@ export async function POST(req) {
 ${PORTFOLIO_PROMPT}
 
 Portfolio facts:
-- Name: Mohammad Kaif
+- Name: Mohammad Kaif Devalapur
 - Role: Full Stack Developer
 - Skills: React, Next.js, Node.js, Express.js, MongoDB, Tailwind CSS, JavaScript
 - Experience: 2+ years

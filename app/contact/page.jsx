@@ -1,5 +1,6 @@
-import { Mail, MapPin, Phone } from "lucide-react";
 import { createPageMetadata } from "@/lib/seo";
+import { Mail, MapPin, Phone } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 export const metadata = createPageMetadata({
   title: "Contact Mohammad Kaif | Full Stack Developer",
@@ -9,7 +10,7 @@ export const metadata = createPageMetadata({
 });
 
 const contactItems = [
-  { label: "Email", value: "mohammadkaifdevalapur@gmail.com", icon: <Mail size={24} /> },
+  { label: "Email", value: "quantamsolutions17816@gmail.com", icon: <Mail size={24} /> },
   { label: "Phone", value: "+91 6362196902", icon: <Phone size={24} /> },
   { label: "Location", value: "India", icon: <MapPin size={24} /> }
 ];
@@ -48,46 +49,8 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <Field label="Name" placeholder="Your name" />
-            <Field label="Email" placeholder="you@example.com" type="email" />
-          </div>
-
-          <div className="mt-5">
-            <Field label="Subject" placeholder="Project or message subject" />
-          </div>
-
-          <label className="mt-5 block">
-            <span className="text-sm font-semibold text-gray-300">Message</span>
-            <textarea
-              rows={7}
-              placeholder="Tell me about your project..."
-              className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-[#0b1120] px-4 py-3 text-white outline-none transition placeholder:text-gray-600 focus:border-green-400"
-            />
-          </label>
-
-          <button
-            type="submit"
-            className="mt-6 w-full rounded-xl bg-green-400 px-6 py-4 font-semibold text-black transition hover:bg-green-300"
-          >
-            Send Message
-          </button>
-        </form>
+        <ContactForm />
       </div>
     </section>
-  );
-}
-
-function Field({ label, placeholder, type = "text" }) {
-  return (
-    <label className="block">
-      <span className="text-sm font-semibold text-gray-300">{label}</span>
-      <input
-        type={type}
-        placeholder={placeholder}
-        className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b1120] px-4 py-3 text-white outline-none transition placeholder:text-gray-600 focus:border-green-400"
-      />
-    </label>
   );
 }

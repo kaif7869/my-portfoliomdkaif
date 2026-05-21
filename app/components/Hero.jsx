@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import Backend from "../../public/Images/personal/design/back-end.png";
+import Database from "../../public/Images/personal/design/database.png";
+import Frontend from "../../public/Images/personal/design/frontend.png";
+
 
 export default function Hero() {
   return (
@@ -60,28 +64,28 @@ export default function Hero() {
         </div>
 
         <div className="relative flex justify-center py-6">
-          <div className="absolute h-[360px] w-[280px] rounded-full bg-green-400/20 blur-3xl" />
+          <div className="absolute h-[320px] w-[240px] rounded-full bg-green-400/20 blur-3xl" />
 
-          <div className="relative w-full max-w-[390px]">
+          <div className="relative w-full max-w-[280px]">
             <Image
               src="/Images/personal/mohammadkaifphoto.webp"
               alt="Mohammad Kaif profile"
-              width={390}
-              height={320}
+              width={280}
+              height={360}
               priority
               className="relative z-10 h-auto w-full rounded-[32px] border-4 border-white/10 object-contain shadow-2xl"
             />
 
-            <div className="absolute bottom-5 left-4 z-20 rounded-2xl border border-white/10 bg-[#111827]/75 px-4 py-3 text-white shadow-xl backdrop-blur-md sm:px-5 sm:py-4">
-              <h3 className="text-2xl font-bold sm:text-3xl">2+</h3>
-              <p className="mt-1 text-sm text-gray-200 sm:text-base">
+            <div className="absolute -bottom-4 -left-5 z-20 rounded-xl border border-white/10 bg-[#111827]/80 px-3 py-2 text-white shadow-xl backdrop-blur-md sm:px-4 sm:py-3">
+              <h3 className="text-xl font-bold sm:text-2xl">2+</h3>
+              <p className="mt-1 text-xs text-gray-200 sm:text-sm">
                 Years Experience
               </p>
             </div>
 
-            <div className="absolute right-4 top-5 z-20 rounded-2xl border border-white/10 bg-[#111827]/75 px-4 py-3 text-white shadow-xl backdrop-blur-md sm:px-5 sm:py-4">
-              <h3 className="text-2xl font-bold sm:text-3xl">20+</h3>
-              <p className="mt-1 text-sm text-gray-200 sm:text-base">
+            <div className="absolute -right-5 top-5 z-20 rounded-xl border border-white/10 bg-[#111827]/80 px-3 py-2 text-white shadow-xl backdrop-blur-md sm:px-4 sm:py-3">
+              <h3 className="text-xl font-bold sm:text-2xl">20+</h3>
+              <p className="mt-1 text-xs text-gray-200 sm:text-sm">
                 Projects
               </p>
             </div>
@@ -91,14 +95,17 @@ export default function Hero() {
 
       <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-3">
         <InfoCard
+          icon={<Image src={Frontend} alt="Frontend" width={40} height={40} />}
           title="Frontend Development"
           desc="Responsive interfaces using React, Next.js, Tailwind CSS, and reusable components."
         />
         <InfoCard
+          icon={<Image src={Backend} alt="Backend" width={40} height={40} />}
           title="Backend Development"
           desc="REST APIs, authentication flows, and server-side application logic with Node.js."
         />
         <InfoCard
+          icon={<Image src={Database} alt="Database" width={40} height={40} />}
           title="Database Management"
           desc="MongoDB schemas, data modeling, integrations, and performance-aware queries."
         />
@@ -107,11 +114,11 @@ export default function Hero() {
   );
 }
 
-function InfoCard({ title, desc }) {
+function InfoCard({ icon, title, desc }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition-all duration-300 hover:-translate-y-2">
-      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-green-400 text-2xl font-bold text-black">
-        *
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gray-200 text-2xl font-bold text-black">
+        {icon}
       </div>
 
       <h3 className="mt-6 text-2xl font-bold text-white">{title}</h3>

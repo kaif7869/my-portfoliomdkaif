@@ -28,7 +28,7 @@ export default function About() {
           <div className="absolute h-[350px] w-[350px] rounded-full bg-green-400/20 blur-3xl" />
 
           <Image
-            src="/Images/personal/aboutme.png"
+            src="/Images/personal/aboutme1.png"
             alt="Mohammad Kaif profile"
             width={380}
             height={500}
