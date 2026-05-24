@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BadgeCheck,
   Code2,
+  FileText,
   Headphones,
   LayoutDashboard,
   Rocket,
@@ -47,6 +48,9 @@ const processSteps = [
   "One month free support"
 ];
 
+const staticEstimatePdfUrl = "/pdf/Static_Website.pdf";
+const dynamicEstimatePdfUrl = "/pdf/Dynamic_Website_Estimate_Proposal.pdf";
+
 export default function FreelancingPage() {
   return (
     <section className="min-h-screen bg-[#0f172a] px-5 py-12 text-white md:px-8 lg:px-10">
@@ -79,6 +83,24 @@ export default function FreelancingPage() {
               >
                 View Work
               </Link>
+              <a
+                href={staticEstimatePdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-green-400/40 px-6 py-4 font-semibold text-green-300 transition hover:bg-green-400/10"
+              >
+                <FileText size={18} />
+                Static Website Estimate
+              </a>
+              <a
+                href={dynamicEstimatePdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-green-400/40 px-6 py-4 font-semibold text-green-300 transition hover:bg-green-400/10"
+              >
+                <FileText size={18} />
+                Dynamic Website Estimate
+              </a>
             </div>
           </div>
 
