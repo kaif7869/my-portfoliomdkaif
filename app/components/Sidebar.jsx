@@ -7,6 +7,7 @@ import {
   GraduationCap,
   Home,
   Mail,
+  Rocket,
   User
 } from "lucide-react";
 import Link from "next/link";
@@ -18,6 +19,7 @@ const navItems = [
   { href: "/about", title: "About Me", icon: User },
   { href: "/skills", title: "Skills", icon: Code2 },
   { href: "/projects", title: "Projects", icon: FolderGit2 },
+  { href: "/freelancing", title: "Freelancing", icon: Rocket },
   { href: "/experience", title: "Experience", icon: Briefcase },
   { href: "/education", title: "Education", icon: GraduationCap },
   { href: "/contact", title: "Contact", icon: Mail }

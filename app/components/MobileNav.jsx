@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   Briefcase,
   Code2,
@@ -9,17 +7,21 @@ import {
   GraduationCap,
   Home,
   Mail,
-  User
+  Rocket,
+  User,
 } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", title: "Home", icon: Home },
   { href: "/about", title: "About", icon: User },
   { href: "/skills", title: "Skills", icon: Code2 },
   { href: "/projects", title: "Projects", icon: FolderGit2 },
+  { href: "/freelancing", title: "Freelance", icon: Rocket },
   { href: "/experience", title: "Experience", icon: Briefcase },
   { href: "/education", title: "Education", icon: GraduationCap },
-  { href: "/contact", title: "Contact", icon: Mail }
+  { href: "/contact", title: "Contact", icon: Mail },
 ];
 
 export default function MobileNav() {

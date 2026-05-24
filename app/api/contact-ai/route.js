@@ -3,6 +3,10 @@ import { getGeminiModel } from "@/lib/gemini";
 export const dynamic = "force-dynamic";
 
 export async function POST(request) {
+    let name = "";
+    let subject = "";
+    let message = "";
+
     try {
         const apiKey = process.env.GENERATIVE_API_KEY || process.env.GEMINI_API_KEY;
 
@@ -11,9 +15,9 @@ export async function POST(request) {
         }
 
         const body = await request.json();
-        const name = String(body.name || "").trim();
-        const subject = String(body.subject || "").trim();
-        const message = String(body.message || "").trim();
+        name = String(body.name || "").trim();
+        subject = String(body.subject || "").trim();
+        message = String(body.message || "").trim();
 
         if (!message) {
             return Response.json({ error: "Please write a message first." }, { status: 400 });
@@ -37,7 +41,33 @@ ${message}
         return Response.json({
             message: improvedMessage || message
         });
-    } catch {
+    } catch (error) {
+        console.error("Contact AI error:", error);
+
+        if (message) {
+            return Response.json({
+                fallback: true,
+                message: createFallbackMessage({ name, subject, message })
+            });
+        }
+
         return Response.json({ error: "Could not improve the message right now." }, { status: 500 });
     }
+}
+
+function createFallbackMessage({ name, subject, message }) {
+    const greeting = "Hello Mohammad Kaif,";
+    const intro = name ? `My name is ${name}.` : "I am reaching out through your portfolio.";
+    const projectLine = subject ? `I would like to discuss ${subject}.` : "I would like to discuss a project or service requirement.";
+    const cleanMessage = message.replace(/\s+/g, " ").trim();
+
+    return `${greeting}
+
+${intro} ${projectLine}
+
+${cleanMessage}
+
+Please let me know your availability and the next steps.
+
+Thank you.`;
 }
