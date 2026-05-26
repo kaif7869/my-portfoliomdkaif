@@ -19,6 +19,7 @@ const navItems = [
   { href: "/about", title: "About Me", icon: User },
   { href: "/skills", title: "Skills", icon: Code2 },
   { href: "/projects", title: "Projects", icon: FolderGit2 },
+  // { href: "/blogs", title: "Blogs", icon: BookOpenText },
   { href: "/freelancing", title: "Freelancing", icon: Rocket },
   { href: "/experience", title: "Experience", icon: Briefcase },
   { href: "/education", title: "Education", icon: GraduationCap },
@@ -35,7 +36,6 @@ export default function Sidebar() {
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-green-400">
             Full Stack
           </p>
-          <h2 className="mt-2 text-2xl font-bold text-white">Mohammad Kaif</h2>
           <p className="mt-2 text-sm leading-relaxed text-gray-400">
             React, Next.js, Node.js and MongoDB developer.
           </p>

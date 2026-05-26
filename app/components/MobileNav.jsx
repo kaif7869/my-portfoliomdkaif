@@ -2,6 +2,7 @@
 
 import {
   Briefcase,
+  BookOpenText,
   Code2,
   FolderGit2,
   GraduationCap,
@@ -18,6 +19,7 @@ const navItems = [
   { href: "/about", title: "About", icon: User },
   { href: "/skills", title: "Skills", icon: Code2 },
   { href: "/projects", title: "Projects", icon: FolderGit2 },
+  { href: "/blogs", title: "Blogs", icon: BookOpenText },
   { href: "/freelancing", title: "Freelance", icon: Rocket },
   { href: "/experience", title: "Experience", icon: Briefcase },
   { href: "/education", title: "Education", icon: GraduationCap },

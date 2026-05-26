@@ -1,11 +1,11 @@
 import {
-  absoluteUrl,
-  createPageMetadata,
-  defaultDescription,
-  defaultTitle,
-  keywords,
-  siteName,
-  siteUrl,
+    absoluteUrl,
+    createPageMetadata,
+    defaultDescription,
+    defaultTitle,
+    keywords,
+    siteName,
+    siteUrl,
 } from '@/lib/seo'
 import ChatBot from './chatBot/page'
 import MobileNav from './components/MobileNav'
@@ -88,6 +88,15 @@ function TopNav() {
                         Mohammad Kaif
                     </h1>
                 </div>
+
+                <div className='flex'>
+                    <a
+                        href='/blogs'
+                        className='text-white hover:text-green-400'
+                    >
+                        Blogs
+                    </a>
+                </div>    
 
                 <div className="flex items-center gap-4">
                     <a
